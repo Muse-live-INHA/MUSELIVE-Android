@@ -4,14 +4,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.inhauniv.hackathon.databinding.ItemPaymentMinusListBinding
 import com.inhauniv.hackathon.databinding.ItemPaymentPlusListBinding
 import com.inhauniv.hackathon.domain.entity.PaymentDetail
+import com.inhauniv.hackathon.domain.entity.SpecificMonthPayment
 
 class PaymentDetailAdapter: RecyclerView.Adapter<PaymentDetailAdapter.PaymentDetailViewHolder>() {
 
-    private val payments = mutableListOf<PaymentDetail>()
+    private val payments = mutableListOf<SpecificMonthPayment>()
 
-    fun submitList(list: List<PaymentDetail>) {
+    fun submitList(list: List<SpecificMonthPayment>) {
         this.payments.clear()
         Log.d(TAG, "결제 내역 : $list")
         payments.addAll(list)
@@ -19,23 +21,22 @@ class PaymentDetailAdapter: RecyclerView.Adapter<PaymentDetailAdapter.PaymentDet
     }
 
     class PaymentDetailViewHolder(
-        private val binding: ItemPaymentPlusListBinding
+        private val binding: ItemPaymentMinusListBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: PaymentDetail){
+        fun onBind(data: SpecificMonthPayment){
             binding.data = data
             binding.executePendingBindings()
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaymentDetailViewHolder {
-        val binding = ItemPaymentPlusListBinding.inflate(
+        val binding = ItemPaymentMinusListBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
         return PaymentDetailViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PaymentDetailViewHolder, position: Int) {
-
         holder.onBind(payments[position])
     }
 
