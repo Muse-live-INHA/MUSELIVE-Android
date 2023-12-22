@@ -3,12 +3,14 @@ package com.inhauniv.hackathon.ui.payment.pr
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import java.util.Base64
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
 import com.inhauniv.hackathon.R
 import com.inhauniv.hackathon.databinding.ActivityQrscanBinding
 import com.inhauniv.hackathon.domain.util.showToast
 import com.inhauniv.hackathon.ui.base.BaseActivity
+import org.json.JSONObject
 
 class QrScanActivity: BaseActivity<ActivityQrscanBinding>(R.layout.activity_qrscan) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +37,18 @@ class QrScanActivity: BaseActivity<ActivityQrscanBinding>(R.layout.activity_qrsc
             finish()
         } else {
             Log.d(TAG, "QR코드 스캔 성공 : ${result.contents}")
+            val jsonObject = JSONObject(result.contents)
+            // service_id 값 추출
+            val serviceId = jsonObject.getInt("service_id")
+            Log.d(TAG, "Service ID: $serviceId")
+
+            // service_name 값 추출
+            val serviceName = jsonObject.getString("service_name")
+            Log.d(TAG, "Service Name: $serviceName")
+
+            binding.tvData.text = "service id : $serviceId\n service name : $serviceName"
             // 금액 입력 화면 이동으로 추후 변경
-            finish()
+            //finish()
         }
     }
 

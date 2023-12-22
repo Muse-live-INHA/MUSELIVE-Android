@@ -27,8 +27,8 @@
             android:id="@+id/cl_wallet"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/bg_rect_white_r10"
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,36 +74,56 @@
                     tools:text="92,445원" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/tv_charge"
-                android:layout_width="100dp"
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:paddingVertical="15dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/bg_rect_stroke_blue3_r10"
-                android:gravity="center"
-                android:paddingVertical="18dp"
-                android:text="충전"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/iv_mascot"
-                app:layout_constraintTop_toBottomOf="@+id/iv_mascot" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/iv_mascot">
+
+                <TextView
+                    android:id="@+id/tv_withdraw"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_rect_stroke_blue3_r10"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:text="입금"
+                    android:textSize="16sp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_deposit"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/bg_rect_stroke_blue3_r10"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:text="출금"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_payment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:background="@drawable/bg_rect_blue1_r10"
                 android:gravity="center"
                 android:paddingVertical="18dp"
                 android:text="QR 결제"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_charge"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_charge"
-                app:layout_constraintTop_toTopOf="@+id/tv_charge" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -111,8 +131,8 @@
             android:id="@+id/cl_donation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/bg_rect_white_r10"
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -153,8 +173,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textSize="15sp"
                 android:text="12월에 기부한 금액"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -216,13 +236,16 @@
                 app:srcCompat="@drawable/ic_right_arrow_disable" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_payment_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="20dp"
+                android:paddingBottom="20dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_previous"
-                tools:listitem="@layout/item_payment_plus_list"/>
+                tools:listitem="@layout/item_payment_plus_list" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
