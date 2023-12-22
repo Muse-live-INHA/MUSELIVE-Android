@@ -1,4 +1,6 @@
 package com.inhauniv.hackathon.ui.home
 
-class HomeViewModel {
+import com.inhauniv.hackathon.ui.base.BaseViewModel
+
+class HomeViewModel: BaseViewModel() {
 }
