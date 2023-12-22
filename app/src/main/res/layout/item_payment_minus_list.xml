@@ -1,84 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="15dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/iv_plus"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:padding="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_minus" />
+    <data>
+        <variable
+            name="data"
+            type="com.inhauniv.hackathon.domain.entity.PaymentDetail" />
+    </data>
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/iv_plus"
-        app:layout_constraintTop_toTopOf="@+id/iv_plus"
-        tools:text="결제" />
+        android:padding="15dp">
 
-    <TextView
-        android:id="@+id/tv_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_plus"
-        app:layout_constraintStart_toStartOf="@+id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        android:maxEms="10"
-        android:maxLines="1"
-        android:ellipsize="end"
-        tools:text="주식회사 소블링(SOBLING)" />
+        <ImageView
+            android:id="@+id/iv_plus"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_minus" />
 
-    <TextView
-        android:id="@+id/tv_divider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:layout_marginStart="5dp"
-        android:textColor="@color/gray"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_plus"
-        app:layout_constraintStart_toEndOf="@+id/tv_location"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        android:text="|" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="15sp"
+            android:text="@{data.title}"
+            app:layout_constraintStart_toEndOf="@+id/iv_plus"
+            app:layout_constraintTop_toTopOf="@+id/iv_plus"
+            tools:text="결제" />
 
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:layout_marginStart="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_plus"
-        app:layout_constraintStart_toEndOf="@+id/tv_divider"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        tools:text="13:27" />
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_plus"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            android:maxEms="10"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="주식회사 소블링(SOBLING)" />
 
-    <TextView
-        android:id="@+id/tv_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_title"
-        tools:text="990원" />
+        <TextView
+            android:id="@+id/tv_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_plus"
+            app:layout_constraintStart_toEndOf="@+id/tv_location"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            android:text="|" />
 
-    <TextView
-        android:id="@+id/tv_total_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_plus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_amount"
-        tools:text="잔액 57,341원" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_plus"
+            app:layout_constraintStart_toEndOf="@+id/tv_divider"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:text="13:27" />
+
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_title"
+            tools:text="990원" />
+
+        <TextView
+            android:id="@+id/tv_total_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_plus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_amount"
+            tools:text="잔액 57,341원" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
