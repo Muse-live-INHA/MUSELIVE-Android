@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import com.inhauniv.hackathon.R
 import com.inhauniv.hackathon.databinding.ActivityAmountBinding
 import com.inhauniv.hackathon.domain.entity.Payment
+import com.inhauniv.hackathon.domain.entity.WithDraw
 import com.inhauniv.hackathon.ui.base.BaseActivity
 
 class WithdrawActivity: BaseActivity<ActivityAmountBinding>(R.layout.activity_withdraw) {
@@ -19,12 +20,11 @@ class WithdrawActivity: BaseActivity<ActivityAmountBinding>(R.layout.activity_wi
 
         binding.tvCancelBtn.setOnClickListener { finish() }
         binding.tvAmountBtn.setOnClickListener {
-            val request = Payment(
+            val request = WithDraw(
                 paymentAmount = Integer.parseInt(binding.etPaymentAmount.text.toString()),
-                schoolId = 12191590,
-                serviceId = serviceId
+                schoolId = 12191590
             )
-            viewModel.postPayment(request)
+            viewModel.postWithdraw(request)
         }
 
     }
