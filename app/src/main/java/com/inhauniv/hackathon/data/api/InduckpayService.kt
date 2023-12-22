@@ -22,7 +22,7 @@ interface InduckpayService {
     )
 
 
-    @POST("payment")
+    @POST("withdraw")
     suspend fun postWithdraw(
         @Body request: WithDraw
     )

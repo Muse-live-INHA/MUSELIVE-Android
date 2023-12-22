@@ -16,9 +16,10 @@ class ChargeActivity: BaseActivity<ActivityChargeBinding>(R.layout.activity_char
         binding.tvChargeBtn.setOnClickListener {
             val request = Deposit(
                 paymentAmount = Integer.parseInt(binding.etChargeAmount.text.toString()),
-                schoolId = 12191590,
+                schoolId = 12181707,
             )
             viewModel.postDeposit(request)
+            finish()
         }
 
     }

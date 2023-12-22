@@ -45,11 +45,18 @@
 
         <activity
             android:name=".ui.payment.amount.AmountActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false"/>
 
         <activity
             android:name=".ui.charge.ChargeActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false"/>
+
+        <activity
+            android:name=".ui.withdraw.WithdrawActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" />
 
 
         <service

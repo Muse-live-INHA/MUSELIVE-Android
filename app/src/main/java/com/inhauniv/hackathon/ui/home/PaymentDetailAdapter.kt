@@ -4,10 +4,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.inhauniv.hackathon.R
 import com.inhauniv.hackathon.databinding.ItemPaymentMinusListBinding
-import com.inhauniv.hackathon.databinding.ItemPaymentPlusListBinding
-import com.inhauniv.hackathon.domain.entity.PaymentDetail
 import com.inhauniv.hackathon.domain.entity.SpecificMonthPayment
+import com.inhauniv.hackathon.domain.util.formatAmount
+import com.inhauniv.hackathon.domain.util.formattedDate
 
 class PaymentDetailAdapter: RecyclerView.Adapter<PaymentDetailAdapter.PaymentDetailViewHolder>() {
 
@@ -25,6 +26,11 @@ class PaymentDetailAdapter: RecyclerView.Adapter<PaymentDetailAdapter.PaymentDet
     ): RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: SpecificMonthPayment){
             binding.data = data
+            binding.tvAmount.text = formatAmount(data.payment_amount)
+            binding.tvTme.text = formattedDate(data.payment_datetime)
+            if(data.service_name == "입금") {
+                binding.ivMinus.setImageResource(R.drawable.ic_plus)
+            }
             binding.executePendingBindings()
         }
     }

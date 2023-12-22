@@ -15,6 +15,7 @@ import com.inhauniv.hackathon.domain.util.formatAmount
 import com.inhauniv.hackathon.ui.base.BaseActivity
 import com.inhauniv.hackathon.ui.charge.ChargeActivity
 import com.inhauniv.hackathon.ui.payment.pr.QrScanActivity
+import com.inhauniv.hackathon.ui.withdraw.WithdrawActivity
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -26,6 +27,16 @@ class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
 
         getFCMToken()
         initAdapter()
+        initView()
+        observe()
+    }
+    override fun onStart() {
+        super.onStart()
+        initView()
+        observe()
+    }
+    override fun onResume() {
+        super.onResume()
         initView()
         observe()
     }
@@ -48,7 +59,7 @@ class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
         binding.rvPaymentDetails.adapter = adapter
     }
     private fun initView() {
-        viewModel.getUserInfo(12181707, "2023-12-22")
+        viewModel.getUserInfo(12181707, "2023-12")
         binding.tvPayment.setOnClickListener {
             val intent = Intent(this, QrScanActivity::class.java)
             startActivity(intent)
@@ -58,6 +69,17 @@ class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
             val intent = Intent(this, ChargeActivity::class.java)
             startActivity(intent)
         }
+
+        try {
+            binding.tvWithdraw.setOnClickListener {
+                val intent = Intent(this, WithdrawActivity::class.java)
+                intent.putExtra("account", viewModel.info.value.balance)
+                startActivity(intent)
+            }
+        } catch (e: Exception) {
+            Log.e("HomeActivity", "tvWithdraw 에러 : ${e.toString()}")
+        }
+
     }
 
     private fun observe() {
@@ -65,7 +87,7 @@ class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
             binding.availAmount.text = formatAmount(info.balance)
             binding.tvTotalDonationAmount.text = formatAmount(info.donate_payment)
             binding.tvMonthDonationAmount.text = formatAmount(info.specific_month_donate_payment)
-            binding.tvUser.text = info.user_name
+            binding.tvUser.text = info.user_name+"님의 페이"
             adapter.submitList(info.specific_month_payment)
         }.launchIn(lifecycleScope)
     }
