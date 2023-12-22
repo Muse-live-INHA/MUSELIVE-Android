@@ -44,12 +44,18 @@
 
         <activity
             android:name=".ui.payment.amount.AmountActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
 
         <activity
             android:name=".ui.charge.ChargeActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
 
+        <activity
+            android:name=".ui.withdraw.amount.WithdrawActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
 
         <service
             android:name=".data.FCMService"
