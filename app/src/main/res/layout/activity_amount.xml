@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="12dp"
+        android:background="#FFFFFF">
+
+        <!-- 헤더 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+            android:elevation="6dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            \
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_left_arrow_default" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="인덕페이 충전"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif-medium" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="충전 금액"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif-medium" />
+
+            <LinearLayout
+                android:id="@+id/ll_charge_amt"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_rect_stroke_gray_r10"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="충전할 금액을 입력하세요"
+                    android:textSize="14sp"
+                    android:textColor="#80000000" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_charge_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="충전"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_rect_blue1_r10"
+                android:layout_marginTop="12dp"
+                android:paddingVertical="15dp"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="16sp" />
+
+<!--            <EditText-->
+<!--                android:id="@+id/et_keypad"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:digits="0123456789"-->
+<!--                android:imeOptions="actionNext"-->
+<!--                android:inputType="number"-->
+<!--                android:maxLength="15"-->
+<!--                />-->
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
