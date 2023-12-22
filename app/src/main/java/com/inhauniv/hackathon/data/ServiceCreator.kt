@@ -1,5 +1,6 @@
 package com.inhauniv.hackathon.data
 
+import com.inhauniv.hackathon.data.api.InduckpayService
 import com.inhauniv.hackathon.data.api.UserService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,4 +29,5 @@ object ServiceCreator {
         .build()
 
     val userService: UserService = retrofit.create(UserService::class.java)
+    val induckpayService: InduckpayService = retrofit.create(InduckpayService::class.java)
 }
