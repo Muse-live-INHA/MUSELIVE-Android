@@ -14,7 +14,7 @@
         tools:context=".ui.home.HomeActivity">
 
         <TextView
-            android:id="@+id/main_title"
+            android:id="@+id/tv_main_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -33,7 +33,7 @@
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_title">
+            app:layout_constraintTop_toBottomOf="@id/tv_main_title">
 
             <ImageView
                 android:id="@+id/iv_mascot"
