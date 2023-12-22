@@ -16,7 +16,7 @@ class InduckpayRepository {
         return induckpayService.postPayment(payment)
     }
 
-     suspend fun postDeposit(withDraw: WithDraw) {
+     suspend fun postWithdraw(withDraw: WithDraw) {
         return induckpayService.postWithdraw(withDraw)
     }
 }
