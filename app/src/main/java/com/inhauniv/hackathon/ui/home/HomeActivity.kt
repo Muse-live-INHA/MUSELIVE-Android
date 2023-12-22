@@ -4,17 +4,23 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import com.inhauniv.hackathon.R
 import com.inhauniv.hackathon.databinding.ActivityHomeBinding
 import com.inhauniv.hackathon.domain.entity.PaymentDetail
+import com.inhauniv.hackathon.domain.util.formatAmount
 import com.inhauniv.hackathon.ui.base.BaseActivity
+import com.inhauniv.hackathon.ui.charge.ChargeActivity
 import com.inhauniv.hackathon.ui.payment.pr.QrScanActivity
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
     private val adapter by lazy { PaymentDetailAdapter() }
-
+    private val viewModel by viewModels<HomeViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,18 +48,25 @@ class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
         binding.rvPaymentDetails.adapter = adapter
     }
     private fun initView() {
+        viewModel.getUserInfo(12181707, "2023-12-22")
         binding.tvPayment.setOnClickListener {
             val intent = Intent(this, QrScanActivity::class.java)
             startActivity(intent)
         }
 
         binding.tvDeposit.setOnClickListener {
-
+            val intent = Intent(this, ChargeActivity::class.java)
+            startActivity(intent)
         }
     }
 
     private fun observe() {
-        val list = listOf<PaymentDetail>(PaymentDetail("자동 충전"), PaymentDetail("충전"), PaymentDetail("송금"), PaymentDetail("입금"), PaymentDetail("유경뿡") )
-        adapter.submitList(list)
+        viewModel.info.onEach { info ->
+            binding.availAmount.text = formatAmount(info.balance)
+            binding.tvTotalDonationAmount.text = formatAmount(info.donate_payment)
+            binding.tvMonthDonationAmount.text = formatAmount(info.specific_month_donate_payment)
+            binding.tvUser.text = info.user_name
+            adapter.submitList(info.specific_month_payment)
+        }.launchIn(lifecycleScope)
     }
 }

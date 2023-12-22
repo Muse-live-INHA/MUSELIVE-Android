@@ -21,10 +21,11 @@ class AmountActivity: BaseActivity<ActivityAmountBinding>(R.layout.activity_amou
         binding.tvAmountBtn.setOnClickListener {
             val request = Payment(
                 paymentAmount = Integer.parseInt(binding.etPaymentAmount.text.toString()),
-                schoolId = 12191590,
+                schoolId = 12181707,
                 serviceId = serviceId
             )
             viewModel.postPayment(request)
+            finish()
         }
 
     }
