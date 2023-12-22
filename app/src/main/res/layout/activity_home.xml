@@ -97,7 +97,7 @@
                 android:background="@drawable/bg_rect_blue1_r10"
                 android:gravity="center"
                 android:paddingVertical="18dp"
-                android:text="결제"
+                android:text="QR 결제"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_charge"
