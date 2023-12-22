@@ -11,6 +11,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.inhauniv.hackathon.R
 import com.inhauniv.hackathon.databinding.ActivityHomeBinding
 import com.inhauniv.hackathon.domain.entity.PaymentDetail
+import com.inhauniv.hackathon.domain.util.formatAmount
 import com.inhauniv.hackathon.ui.base.BaseActivity
 import com.inhauniv.hackathon.ui.charge.ChargeActivity
 import com.inhauniv.hackathon.ui.payment.pr.QrScanActivity
@@ -61,9 +62,9 @@ class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
 
     private fun observe() {
         viewModel.info.onEach { info ->
-            binding.availAmount.text = info.balance.toString()
-            binding.tvTotalDonationAmount.text = info.donate_payment.toString()
-            binding.tvMonthDonationAmount.text = info.specific_month_donate_payment.toString()
+            binding.availAmount.text = formatAmount(info.balance)
+            binding.tvTotalDonationAmount.text = formatAmount(info.donate_payment)
+            binding.tvMonthDonationAmount.text = formatAmount(info.specific_month_donate_payment)
             binding.tvUser.text = info.user_name
             adapter.submitList(info.specific_month_payment)
         }.launchIn(lifecycleScope)
