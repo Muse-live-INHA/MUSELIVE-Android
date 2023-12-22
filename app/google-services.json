@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "963724367259",
+    "project_id": "induckpay",
+    "storage_bucket": "induckpay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963724367259:android:ea83656ae83be209cbfd3e",
+        "android_client_info": {
+          "package_name": "com.inhauniv.hackathon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuIN6a7WLYlwFx0LPVa9DxXJSOPtxvmig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
