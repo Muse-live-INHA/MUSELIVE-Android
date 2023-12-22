@@ -100,4 +100,7 @@ dependencies {
     // CircleImageView
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
+    // QR code scam
+    implementation ("com.journeyapps:zxing-android-embedded:4.1.0")
+    implementation ("com.google.zxing:core:3.4.1")
 }
