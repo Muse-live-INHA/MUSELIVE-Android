@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -11,9 +12,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingBottom="12dp"
-        android:background="#FFFFFF">
+        android:background="#FFFFFF"
+        >
 
-        <!-- 헤더 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -34,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="인덕페이 충전"
+                android:text="인덕페이 결제"
                 android:textSize="20sp"
                 android:textColor="#000000"
                 android:fontFamily="sans-serif-medium" />
@@ -44,15 +45,36 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="12dp">
-
+            android:padding="17dp"
+            >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="충전 금액"
-                android:textSize="14sp"
+                android:text="가게 이름"
+                android:textSize="16sp"
                 android:textColor="#000000"
-                android:fontFamily="sans-serif-medium" />
+                android:fontFamily="sans-serif-medium"
+                android:paddingBottom="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="족사랑"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif-medium"
+                android:paddingBottom="10dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="결제 금액"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif-medium"
+                android:paddingBottom="10dp"/>
 
             <LinearLayout
                 android:id="@+id/ll_charge_amt"
@@ -66,24 +88,47 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="충전할 금액을 입력하세요"
+                    android:text="결제할 금액을 입력하세요"
                     android:textSize="14sp"
                     android:textColor="#80000000" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_charge_btn"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="충전"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/bg_rect_blue1_r10"
-                android:layout_marginTop="12dp"
-                android:paddingVertical="15dp"
-                android:gravity="center"
-                android:paddingHorizontal="20dp"
-                android:fontFamily="sans-serif-medium"
-                android:textSize="16sp" />
+                android:layout_height="match_parent"
+                >
+                <TextView
+                    android:id="@+id/tv_charge_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="취소"
+                    android:textColor="#000000"
+                    android:background="@drawable/bg_rect_stroke_blue3_r10"
+                    android:layout_marginTop="12dp"
+                    android:paddingVertical="20dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="50dp"
+
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="16sp" />
+
+                <Space
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_cancel_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="결제"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_rect_blue1_r10"
+                    android:layout_marginTop="12dp"
+                    android:paddingVertical="20dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="20dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="16sp" /></LinearLayout>
 
 <!--            <EditText-->
 <!--                android:id="@+id/et_keypad"-->
