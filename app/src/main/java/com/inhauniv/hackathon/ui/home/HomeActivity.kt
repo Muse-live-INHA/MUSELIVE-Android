@@ -49,7 +49,7 @@ class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
     }
 
     private fun observe() {
-        val list = listOf<PaymentDetail>(PaymentDetail("자동 충전"), PaymentDetail("충전"), PaymentDetail("송금"), PaymentDetail("입금"), PaymentDetail("유경뿡") )
+        val list = listOf<PaymentDetail>(PaymentDetail("자동 충전"), PaymentDetail("충전"), PaymentDetail("송금"), PaymentDetail("입금"), PaymentDetail("유경뿡"), PaymentDetail("유경뿡2") )
         adapter.submitList(list)
     }
 }

@@ -8,7 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ServiceCreator {
-    private const val BASE_URL = "https://api.github.com/search/"
+    //private const val BASE_URL = "https://api.github.com/search/"
+    private const val BASE_URL = "http://www.devhsb.com:18088"
 
     private val okHttpClient: OkHttpClient = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
