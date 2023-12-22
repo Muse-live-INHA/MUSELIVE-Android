@@ -46,6 +46,10 @@ class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
             val intent = Intent(this, QrScanActivity::class.java)
             startActivity(intent)
         }
+
+        binding.tvDeposit.setOnClickListener {
+
+        }
     }
 
     private fun observe() {
