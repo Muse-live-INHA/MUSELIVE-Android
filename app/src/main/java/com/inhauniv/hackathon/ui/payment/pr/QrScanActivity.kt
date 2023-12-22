@@ -10,6 +10,7 @@ import com.inhauniv.hackathon.R
 import com.inhauniv.hackathon.databinding.ActivityQrscanBinding
 import com.inhauniv.hackathon.domain.util.showToast
 import com.inhauniv.hackathon.ui.base.BaseActivity
+import com.inhauniv.hackathon.ui.payment.amount.AmountActivity
 import org.json.JSONObject
 
 class QrScanActivity: BaseActivity<ActivityQrscanBinding>(R.layout.activity_qrscan) {
@@ -36,19 +37,28 @@ class QrScanActivity: BaseActivity<ActivityQrscanBinding>(R.layout.activity_qrsc
             showToast(this@QrScanActivity, "결제가 취소되었습니다.")
             finish()
         } else {
-            Log.d(TAG, "QR코드 스캔 성공 : ${result.contents}")
-            val jsonObject = JSONObject(result.contents)
-            // service_id 값 추출
-            val serviceId = jsonObject.getInt("service_id")
-            Log.d(TAG, "Service ID: $serviceId")
+            try {
+                Log.d(TAG, "QR코드 스캔 성공 : ${result.contents}")
+                val jsonObject = JSONObject(result.contents)
+                // service_id 값 추출
+                val serviceId = jsonObject.getInt("service_id")
+                Log.d(TAG, "Service ID: $serviceId")
 
-            // service_name 값 추출
-            val serviceName = jsonObject.getString("service_name")
-            Log.d(TAG, "Service Name: $serviceName")
+                // service_name 값 추출
+                val serviceName = jsonObject.getString("service_name")
+                Log.d(TAG, "Service Name: $serviceName")
 
-            binding.tvData.text = "service id : $serviceId\n service name : $serviceName"
-            // 금액 입력 화면 이동으로 추후 변경
-            //finish()
+                binding.tvData.text = "serviceId : $serviceId\n servicName : $serviceName"
+                // 금액 입력 화면 이동으로 추후 변경
+                val intent = Intent(this@QrScanActivity, AmountActivity::class.java)
+                intent.putExtra("serviceId", serviceId)
+                intent.putExtra("serviceName", serviceName)
+                startActivity(intent)
+                finish()
+            }
+            catch (e: Exception) {
+                Log.e(TAG, e.message.toString())
+            }
         }
     }
 
