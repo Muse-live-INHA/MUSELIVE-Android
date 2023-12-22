@@ -10,6 +10,7 @@ import com.inhauniv.hackathon.R
 import com.inhauniv.hackathon.databinding.ActivityHomeBinding
 import com.inhauniv.hackathon.domain.entity.PaymentDetail
 import com.inhauniv.hackathon.ui.base.BaseActivity
+import com.inhauniv.hackathon.ui.charge.ChargeActivity
 import com.inhauniv.hackathon.ui.payment.pr.QrScanActivity
 
 class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
@@ -48,7 +49,8 @@ class HomeActivity: BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
         }
 
         binding.tvDeposit.setOnClickListener {
-
+            val intent = Intent(this, ChargeActivity::class.java)
+            startActivity(intent)
         }
     }
 
