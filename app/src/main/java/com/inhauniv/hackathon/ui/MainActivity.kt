@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.onEach
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val viewModel by viewModels<MainViewModel>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,6 +23,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private fun initView() {
         viewModel.getItems()
+        //viewModel.setTitle("text")
+        binding.text.text = "예선"
     }
 
     private fun observe() {
@@ -31,7 +32,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             if(items.isNotEmpty()) {
                 Log.d(TAG, "items : $items")
                 showToast(this, items[0].login)
+
+                binding.text.text = items[0].login
             }
+
         }.launchIn(lifecycleScope)
 
         viewModel.error.onEach { error ->

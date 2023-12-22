@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Hackathon"
         tools:targetApi="31">
         <activity
+            android:name=".ui.base.TestActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
